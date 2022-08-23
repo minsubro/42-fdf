@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/17 19:05:43 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/19 15:01:02 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/20 16:30:10 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ char	*ft_make(char **str)
 	temp = (char *)malloc(lf_idx + 1);
 	if (!temp)
 		ft_error();
-	while (i < lf_idx)
+	while (i < lf_idx && (*str)[i] != '\n')
 	{
 		temp[i] = (*str)[i];
 		i++;
