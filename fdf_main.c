@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:51:10 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/22 22:05:27 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/26 21:19:54 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,19 +152,73 @@ t_map	*create_map(char *av)
 	map->col = 0;
 	map->row = 0;
 	map->distance = 0;
-	map->x_rot = 30;
-	map->y_rot = 30;
+	map->x_rot = -(M_PI / 6);
+	map->y_rot = -(M_PI / 6);
 	map->z_rot = 0;
+	map->width = 1080;
+	map->height = 1920;
 	make_map(av, map);
 	
 	
 	return (map);
 }
 
-int key_input(int keycode)
+void	position_setting(t_info *info)
+{
+	int	i;
+	int	j;
+	int xzero;
+	int	yzero;
+
+	xzero = info->xy[info->map->row / 2][info->map->col / 2].x - (info->map->height / 2);
+	yzero = info->xy[info->map->row / 2][info->map->row / 2].y - (info->map->width / 2);
+	i = 0;
+	while (i < info->map->col)
+	{
+		j = 0;
+		while (j < info->map->row)
+		{
+			info->xy[i][j].x -= xzero;
+			info->xy[i][j].y -= yzero;
+			j++;
+		}
+		i++;
+	}
+	
+}
+
+void	re_draw(t_info *info)
+{
+	coordinate_setting(info->map, info->xy);
+	mlx_clear_window(info->mlx->mlx, info->mlx->mlx_win);
+	t_conversion_isometric(info->xy, info->map);
+	//conversion_isometric(info->xy, info->map);
+	position_setting(info);
+	print_pixel(info->xy, info->map, info->mlx->mlx, info->mlx->mlx_win);
+	draw(info->xy, info->map, info->mlx);
+}
+
+int key_input(int keycode, t_info *info)
 {
 	if (keycode == 53)
 		exit(0);
+	if (keycode == 123)
+		(info->map->y_rot) += 0.05;
+	if (keycode == 124)
+		(info->map->y_rot) -= 0.05;
+	if (keycode == 126)
+		(info->map->x_rot) += 0.05;
+	if (keycode == 125)
+		(info->map->x_rot) -= 0.05;
+	if (keycode == 0)
+		(info->map->z_rot) += 0.05;
+	if (keycode == 1)
+		(info->map->z_rot) -= 0.05;
+	if (keycode == 69 || keycode == 24)
+		(info->map->distance)++;
+	if (keycode == 78 || keycode == 27)
+		(info->map->distance)--;
+	re_draw(info);
 	return (0);
 }
 
@@ -218,7 +272,7 @@ t_coordinate **create_coordinate(t_map *map, int win_x, int win_y)
 	return (coordinate);
 }
 
-void coordinate_setting(t_map *map, t_coordinate ** coordinate)
+void coordinate_setting(t_map *map, t_coordinate **coordinate)
 {
 	int	i;
 	int	j;
@@ -229,8 +283,8 @@ void coordinate_setting(t_map *map, t_coordinate ** coordinate)
 		j = 0;
 		while (j < map->row)
 		{
-			coordinate[i][j].x = j * map->distance + 300;
-			coordinate[i][j].y = i * map->distance + 200;
+			coordinate[i][j].x = j * map->distance;
+			coordinate[i][j].y = i * map->distance;
 			coordinate[i][j].z = map->map[i][j] * 10;
 			j++;
 		}
@@ -280,53 +334,47 @@ void	conversion_isometric(t_coordinate **coordinate, t_map *map)
 }
 
 ///
-void	rotate_x(int *y, int *z, int rot)
+void	rotate_x(int *y, int *z, double rot)
 {
 	(void)rot;
 	int prev_y;
-	double theta;
+	//double theta;
 
-	rot = 30;
 	prev_y = *y;
-	theta = 30 * M_PI / 180;
-	*y = (prev_y * cos(theta)) - (*z * sin(theta));
-	*z = (-prev_y * sin(theta)) + (*z * cos(theta)); 
+	//theta = rot * M_PI / 180;
+	*y = prev_y * cos(rot) + (*z) * sin(rot);
+	*z = -prev_y * sin(rot) + (*z) * cos(rot); 
 }
 
-void	rotate_y(int *x, int *z, int rot)
+void	rotate_y(int *x, int *z, double rot)
 {
-	(void)rot;
 	int		prev_x;
-	double	theta;
+	//double	theta;
 
-	rot = 30 * M_PI / 180;
 	prev_x = *x;
-	theta = 30 * M_PI / 180;
-	*x = (prev_x * cos(theta)) + (*z * sin(theta));
-	*z = (-prev_x * sin(theta)) + (*z * cos(theta)); 
+	//theta = rot * M_PI / 180;
+	*x = prev_x * cos(rot) + (*z) * sin(rot);
+	*z = -prev_x * sin(rot) + (*z) * cos(rot); 
 }
 
-void	rotate_z(int *x, int *y, int rot)
+void	rotate_z(int *x, int *y, double rot)
 {
-	(void)rot;
 	int prev_x;
 	int prev_y;
-	double theta;
+	//double theta;
 
 	prev_x = *x;
 	prev_y = *y;
-	theta = 0 * M_PI / 180;
-	*x = prev_x * cos(theta) - prev_y * sin(theta);
-	*y = prev_x * sin(theta) + prev_y * cos(theta);
+	//theta = rot * M_PI / 180;
+	*x = prev_x * cos(rot) - prev_y * sin(rot);
+	*y = prev_x * sin(rot) + prev_y * cos(rot);
 }
 
 void	t_ft_isometric(t_coordinate *xy, t_map *map)
 {
-	printf("변경전 = %d %d %d\n", xy->x, xy->y, xy->z);
 	rotate_x(&(xy->y), &(xy->z), map->x_rot);
 	rotate_y(&(xy->x), &(xy->z), map->y_rot);
 	rotate_z(&(xy->x), &(xy->y), map->z_rot);
-	printf("변경후 = %d %d %d\n", xy->x, xy->y, xy->z);
 }
 
 void t_conversion_isometric(t_coordinate **coordinate, t_map *map)
@@ -369,7 +417,35 @@ void	print_pixel(t_coordinate **coordinate, t_map *map, void *mlx, void *mlx_win
 }
 
 
-void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data mlx)
+void	same_x(t_mlx_data *mlx, int sy, int ey, int x)
+{
+	int sign;
+
+	sign = 1;
+	if (sy > ey)
+		sign = -1;
+	while (sy != ey)
+	{
+		mlx_pixel_put(mlx->mlx, mlx->mlx_win, x, sy, 0xFFFFFF);
+		sy += sign;
+	}	
+}
+
+void	same_y(t_mlx_data *mlx, int sx, int ex, int y)
+{
+	int sign;
+
+	sign = 1;
+	if (sx > ex)
+		sign = -1;
+	while (sx != ex)
+	{
+		mlx_pixel_put(mlx->mlx, mlx->mlx_win, sx, y, 0xFFFFFF);
+		sx += sign;
+	}	
+}
+
+void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data *mlx)
 {
 	(void)map;
 	int	w;
@@ -386,6 +462,17 @@ void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data mlx)
 	w = abs(e.x - s.x);
 	h = abs(e.y - s.y);
 
+	if (w == 0)
+	{
+		same_x(mlx, s.y, e.y, s.x);
+		return ;
+	}
+	if (h == 0)
+	{
+		same_y(mlx, s.x, e.x, s.y);
+		return ;
+	}
+
 	int k = 2 * h - w;
 	int ka = 2 * h;
 	int kb = 2 * (h - w);
@@ -397,7 +484,7 @@ void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data mlx)
 	{
 		while (x != e.x)
 		{
-			mlx_pixel_put(mlx.mlx, mlx.mlx_win, x, y, 0xFFFFFF);
+			mlx_pixel_put(mlx->mlx, mlx->mlx_win, x, y, 0xFFFFFF);
 			if (k < 0)
 				k += ka;
 			else
@@ -415,7 +502,7 @@ void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data mlx)
 		kb = 2 * (w - h);
 		while (y != e.y)
 		{
-			mlx_pixel_put(mlx.mlx, mlx.mlx_win, x, y, 0xFFFFFF);
+			mlx_pixel_put(mlx->mlx, mlx->mlx_win, x, y, 0xFFFFFF);
 			if (k < 0)
 				k += ka;
 			else
@@ -428,7 +515,7 @@ void	draw_line(t_map *map, t_coordinate s, t_coordinate e, t_mlx_data mlx)
 	}
 }
 
-void	draw(t_coordinate **coordinate, t_map *map, t_mlx_data mlx)
+void	draw(t_coordinate **coordinate, t_map *map, t_mlx_data *mlx)
 {
 	int	i;
 	int	j;
@@ -450,26 +537,49 @@ void	draw(t_coordinate **coordinate, t_map *map, t_mlx_data mlx)
 	}
 }
 
+t_info	*info_init()
+{
+	t_info	*new_info;
+
+	new_info = (t_info *)malloc(sizeof(t_info));
+	if (!new_info)
+		ft_error();
+	return (new_info);
+}
+
+t_mlx_data	*create_mlx()
+{
+	t_mlx_data	*new;
+
+	new = (t_mlx_data *)malloc(sizeof(t_mlx_data));
+	new->mlx = mlx_init();
+	new->mlx_win = mlx_new_window(new->mlx, 1920, 1080, "fdf");
+	return (new);
+}
+
 int main(int ac, char **av)
 {
-	t_map	*map;
-	t_coordinate **coordinate;
-	t_mlx_data	mlx_data;
+	//t_map			*map;
+	//t_coordinate	**coordinate;
+	//t_mlx_data		mlx_data;
+	t_info			*info;
+	
 
 	if (ac == 1)
 		return (0);
-	map = create_map(av[1]);
-	coordinate = create_coordinate(map, 1920, 1080);
-	map->distance = 10;
-	coordinate_setting(map, coordinate);
+	info = info_init();
+	info->map = create_map(av[1]);
+	info->xy = create_coordinate(info->map, 1920, 1080);
+	info->map->distance = 30;
+	info->mlx = create_mlx();
+	coordinate_setting(info->map, info->xy);
 	//ft_print(map);
-	mlx_data.mlx = mlx_init();
-	mlx_data.mlx_win = mlx_new_window(mlx_data.mlx, 1920, 1080, "fdf");
-	//t_conversion_isometric(coordinate, map);
-	conversion_isometric(coordinate, map);
-	coordinate_print(map, coordinate);
-	print_pixel(coordinate, map, mlx_data.mlx, mlx_data.mlx_win);
-	draw(coordinate, map, mlx_data);
-	mlx_key_hook(mlx_data.mlx_win, &key_input, 0);
-	mlx_loop(mlx_data.mlx);
+	t_conversion_isometric(info->xy, info->map);
+	//conversion_isometric(info->xy, info->map);
+	coordinate_print(info->map, info->xy);
+	position_setting(info);
+	print_pixel(info->xy, info->map, info->mlx->mlx, info->mlx->mlx_win);
+	draw(info->xy, info->map, info->mlx);
+	mlx_key_hook(info->mlx->mlx_win, &key_input, info);
+	mlx_loop(info->mlx->mlx);
 }
