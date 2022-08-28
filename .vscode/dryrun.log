@@ -1,7 +1,13 @@
-make --dry-run --always-make --keep-going --print-directory
+make --dry-run --keep-going --print-directory
 make: Entering directory `/Users/minsukan/Desktop/42/fdf'
+cc -Wall -Wextra -Werror -c make_arr.c -o make_arr.o
  
+cc -Wall -Wextra -Werror -c make_xy.c -o make_xy.o
+cc -Wall -Wextra -Werror -c position_setting.c -o position_setting.o
+cc -Wall -Wextra -Werror -c rotate.c -o rotate.o
+cc -Wall -Wextra -Werror -c split.c -o split.o
+ 
+cc -Wall -Wextra -Werror -c utils.c -o utils.o
+cc create_map.o draw_line.o draw.o fdf_main.o ft_atoi.o get_next_line_bonus.o get_next_line_utils_bonus.o projection.o key_input.o list.o make_arr.o make_xy.o position_setting.o rotate.o split.o utils.o -o fdf -Lminilibx -lmlx -framework OpenGL -framework Appkit
 make: Leaving directory `/Users/minsukan/Desktop/42/fdf'
  
-make: *** No targets specified and no makefile found.  Stop.
-
