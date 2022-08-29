@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:51:10 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 15:17:51 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 21:03:05 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,9 @@ int	main(int ac, char **av)
 	info->xy = create_xy(info->map, 1920, 1080);
 	info->mlx = create_mlx();
 	info->projection = ft_strdup("ISO");
+	int len = 0;
+	int hei = 0;
+	info->mlx->image = mlx_xpm_file_to_image(info->mlx->mlx, "./image/red.xpm", &len, &hei);
 	draw(info);
 	mlx_hook(info->mlx->mlx_win, 2, 0, &key_input, info);
 	mlx_hook(info->mlx->mlx_win, 17, 0, &ft_exit, info);

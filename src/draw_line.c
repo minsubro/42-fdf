@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:57:57 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 18:06:39 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 20:58:12 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	x_line(t_data data, int e_x, t_mlx_data *mlx)
 {
 	while (data.x != e_x)
 	{
-		mlx_pixel_put(mlx->mlx, mlx->mlx_win, data.x, data.y, 0xFFFFFF);
+		mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->image, data.x, data.y);
 		if (data.k < 0)
 			data.k += 2 * data.h;
 		else
@@ -46,7 +46,7 @@ void	y_line(t_data data, int e_y, t_mlx_data *mlx)
 {
 	while (data.y != e_y)
 	{
-		mlx_pixel_put(mlx->mlx, mlx->mlx_win, data.x, data.y, 0xFFFFFF);
+		mlx_put_image_to_window(mlx->mlx, mlx->mlx_win, mlx->image, data.x, data.y);
 		if (data.k < 0)
 			data.k += 2 * data.w;
 		else

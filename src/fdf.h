@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:52:08 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 16:09:16 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 20:59:21 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include "minilibx/mlx.h"
+# include "../minilibx/mlx.h"
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 1
@@ -65,6 +65,7 @@ typedef struct s_mlx_data
 {
 	void	*mlx;
 	void	*mlx_win;
+	void	*image;
 }			t_mlx_data;
 
 typedef struct s_info
