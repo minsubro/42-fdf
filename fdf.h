@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:52:08 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 18:10:16 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:34:39 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,5 +135,7 @@ void			same_y(t_mlx_data *mlx, int sx, int ex, int y);
 void			find_distance(t_map *map, int win_x, int win_y);
 void			position_setting(t_info *info);
 void			xy_setting(t_map *map, t_xy **xy);
+int				ft_strcmp(char *s1, char *s2);
+int				file_check(char *name);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:43:19 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 18:16:48 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:36:05 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,21 @@ char	*ft_strdup(char *s1)
 	}
 	temp[i] = 0;
 	return (temp);
+}
+
+int	file_check(char *name)
+{
+	int	i;
+
+	i = 0;
+	while (name[i])
+	{
+		if (name[i] == '.')
+		{
+			if (ft_strcmp(&(name[i]), ".fdf") == 1)
+				return (0);
+		}
+		i++;
+	}
+	return (1);
 }

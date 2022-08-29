@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:00:25 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 19:42:16 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:40:57 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,11 @@ void	position_setting(t_info *info)
 
 void	find_distance(t_map *map, int win_x, int win_y)
 {
-	int	distance;
-
-	distance = 0;
 	while (1)
 	{
-		if (map->row * distance > win_x / 2 || map->col * distance > win_y / 2)
+		if (map->row * map->distance > win_x / 2 || \
+				map->col * map->distance > win_y / 2)
 			break ;
-		distance++;
+		(map->distance)++;
 	}
-	map->distance = distance;
 }

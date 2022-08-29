@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:44:27 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 19:27:53 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:27:04 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_map	*create_map(char *av)
 		ft_error();
 	map->col = 0;
 	map->row = 0;
-	map->distance = 0;
+	map->distance = 5;
 	map->x_rot = 0;
 	map->y_rot = 0;
 	map->z_rot = 0;

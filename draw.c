@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/27 15:40:02 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 18:25:16 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:23:57 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	draw(t_info *info)
 {
 	mlx_clear_window(info->mlx->mlx, info->mlx->mlx_win);
 	mlx_string_put(info->mlx->mlx, info->mlx->mlx_win, \
-		100, 100, 0xFFFFFF, info->projection);
+		20, 20, 0xFFFFFF, info->projection);
 	xy_setting(info->map, info->xy);
 	conversion_rotate(info->xy, info->map);
 	if (ft_strcmp(info->projection, "ISO") == 1)

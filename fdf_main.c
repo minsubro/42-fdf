@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:51:10 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 19:44:27 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 14:31:26 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	ft_error(void)
 {
-	perror("error\n");
+	write(2, "error\n", 6);
 	exit(1);
 }
 
 void	map_error(void)
 {
-	perror("Found wrong line length. Exiting.\n");
+	write(2, "Found wrong line length. Exiting.\n", 34);
 	exit(1);
 }
 
@@ -48,8 +48,8 @@ int	main(int ac, char **av)
 {
 	t_info			*info;
 
-	if (ac != 2)
-		return (0);
+	if (ac != 2 || file_check(av[1]))
+		ft_error();
 	info = info_init();
 	info->map = create_map(av[1]);
 	info->xy = create_xy(info->map, 1920, 1080);
