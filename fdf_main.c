@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:51:10 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 14:31:26 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 15:17:51 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ int	main(int ac, char **av)
 	info->projection = ft_strdup("ISO");
 	draw(info);
 	mlx_hook(info->mlx->mlx_win, 2, 0, &key_input, info);
+	mlx_hook(info->mlx->mlx_win, 17, 0, &ft_exit, info);
 	mlx_loop(info->mlx->mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:43:19 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 14:36:05 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 15:18:37 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,10 @@ int	file_check(char *name)
 		i++;
 	}
 	return (1);
+}
+
+int	ft_exit(t_info *info)
+{
+	(void)info;
+	exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:52:08 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 14:34:39 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:09:16 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <limits.h>
 # include "minilibx/mlx.h"
 
 # ifndef BUFFER_SIZE
@@ -40,6 +38,7 @@ typedef struct s_map
 	double	z_rot;
 	int		movex;
 	int		movey;
+	double	zvalue;
 }			t_map;
 
 typedef struct s_line
@@ -137,5 +136,6 @@ void			position_setting(t_info *info);
 void			xy_setting(t_map *map, t_xy **xy);
 int				ft_strcmp(char *s1, char *s2);
 int				file_check(char *name);
+int				ft_exit(t_info *info);
 
 #endif

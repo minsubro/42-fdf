@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 17:01:28 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/28 19:44:33 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:09:33 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	xy_setting(t_map *map, t_xy **xy)
 		{
 			xy[i][j].x = j * map->distance;
 			xy[i][j].y = i * map->distance;
-			xy[i][j].z = map->map[i][j] * (map->distance / 5);
+			xy[i][j].z = map->map[i][j] * (map->distance * map->zvalue);
 			j++;
 		}
 		i++;

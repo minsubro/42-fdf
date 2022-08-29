@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 16:44:27 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 14:27:04 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/29 16:09:06 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ t_map	*create_map(char *av)
 	map->height = 1080;
 	map->movex = 0;
 	map->movey = 0;
+	map->zvalue = 0.1;
 	make_map(av, map);
 	return (map);
 }
