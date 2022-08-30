@@ -8,7 +8,7 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # This program built for i386-apple-darwin11.3.0
  
 
-# Make data base, printed on Mon Aug 29 20:31:27 2022
+# Make data base, printed on Tue Aug 30 19:14:11 2022
 
 # Variables
 
@@ -27,6 +27,7 @@ VSCODE_LOG_NATIVE = false
 # automatic
 @F = $(notdir $@)
 # makefile
+ 
 CURDIR := /Users/minsukan/Desktop/42/fdf
 # makefile
 SHELL = /bin/sh
@@ -34,7 +35,6 @@ SHELL = /bin/sh
 RM = rm -f
 # environment
 VSCODE_NLS_CONFIG = {"locale":"ko","availableLanguages":{"*":"ko"},"_languagePackId":"738ac08552cca045871a73764b8c446f.ko","_translationsConfigFile":"/Users/minsukan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/tcf.json","_cacheRoot":"/Users/minsukan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko","_resolvedLanguagePackCoreLocation":"/Users/minsukan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"/Users/minsukan/Library/Application Support/Code/clp/738ac08552cca045871a73764b8c446f.ko/corrupted.info","_languagePackSupport":true}
- 
 # environment
 _ = /usr/bin/make
 # makefile (from `Makefile', line 2)
@@ -46,7 +46,7 @@ VSCODE_VERBOSE_LOGGING = true
 # makefile (from `Makefile', line 23)
 OBJS = $(SRCS:.c=.o)
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cr2h00360m/T/vscode-ipc-dca8218d-cbd8-451f-9ed8-626e5114e246.sock
+VSCODE_IPC_HOOK_EXTHOST = /var/folders/zz/zyxvpxvq6csfxvn_n000cr2h00360m/T/vscode-ipc-96c327e9-6f30-4650-9afa-dfe7da13adc6.sock
 # environment
 VSCODE_CWD = /Users/minsukan/Desktop/42/fdf
 # environment
@@ -54,15 +54,13 @@ PATH = /Applications/Visual Studio Code.app/Contents/Resources/app/bin:/usr/loca
 # environment
 LSCOLORS = Gxfxcxdxbxegedabagacad
 # environment
-LaunchInstanceID = 147761D2-7EDE-476B-87C1-1C837B10A5FC
-# environment
 VSCODE_LOG_STACK = false
 # environment
 ELECTRON_RUN_AS_NODE = 1
 # default
 .FEATURES := target-specific order-only second-expansion else-if archives jobserver check-symlink
 # environment
-SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.RVKCw5Rups/Listeners
+SSH_AUTH_SOCK = /private/tmp/com.apple.launchd.cNCt6y7Ett/Listeners
 # automatic
 %F = $(notdir $%)
 # environment
@@ -155,8 +153,6 @@ ITERM_SESSION_ID = w0t0p0:978C0330-B7FC-4C23-A213-C5FCE497DE48
 COLORFGBG = 7;0
 # environment
 __CF_USER_TEXT_ENCODING = 0x19814:0x3:0x33
-# environment
-COMMAND_MODE = unix2003
 # default
 MAKEFILES := 
 # automatic
@@ -165,10 +161,9 @@ MAKEFILES :=
 ITERM_PROFILE = Default
 # environment
 PAGER = less
+ 
 # environment
 LC_ALL = C
-# environment
-SECURITYSESSIONID = 186a5
 # automatic
 ^F = $(notdir $^)
 # default
@@ -182,9 +177,9 @@ LANG = C
 # environment
 TERM = xterm-256color
 # environment
-VSCODE_PID = 5343
+VSCODE_PID = 97464
 # variable set hash-table stats:
-# Load=85/1024=8%, Rehash=0, Collisions=6/117=5%
+# Load=82/1024=8%, Rehash=0, Collisions=6/110=5%
 
 # Pattern-specific Variable Values
 
@@ -192,11 +187,10 @@ VSCODE_PID = 5343
 
 # Directories
 
- 
-# . (device 16777225, inode 2008606): 10 files, no impossibilities.
-# src (device 16777225, inode 2149499): 11 files, no impossibilities so far.
+# . (device 16777225, inode 2008606): 11 files, no impossibilities.
+# src (device 16777225, inode 2149499): 37 files, no impossibilities so far.
 
-# 21 files, no impossibilities in 2 directories.
+# 48 files, no impossibilities in 2 directories.
 
 # Implicit Rules
 
@@ -209,17 +203,47 @@ VSCODE_PID = 5343
 
 # Files
 
-# Not a target:
-src/make_arr.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/make_arr.o: src/make_arr.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/make_arr'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+
+src/list.o: src/list.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/list'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
-src/list.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/rotate.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-28 18:16:41
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/make_xy.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 16:09:33
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 all: fdf
 #  Phony target (prerequisite of .PHONY).
@@ -227,26 +251,56 @@ all: fdf
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 .PHONY: all clean fclean re
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-src/ft_atoi.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/ft_atoi.o: src/ft_atoi.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/ft_atoi'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
-src/key_input.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/get_next_line_bonus.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-20 16:30:10
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/key_input.o: src/key_input.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/key_input'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+
+# Not a target:
+src/same_line.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-28 18:01:29
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
 .SUFFIXES:
@@ -257,7 +311,7 @@ src/key_input.o:
 # Not a target:
 src/draw.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 14:23:57
+#  Last modified 2022-08-29 20:58:25
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -275,7 +329,16 @@ Makefile:
 # Not a target:
 src/fdf_main.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 20:31:15
+#  Last modified 2022-08-29 21:03:05
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/position_setting.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 14:40:57
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -284,7 +347,7 @@ src/fdf_main.c:
 src/draw_line.o: src/draw_line.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/draw_line'
-#  Last modified 2022-08-29 20:31:23
+#  Last modified 2022-08-29 21:05:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -293,10 +356,19 @@ src/draw_line.o: src/draw_line.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
 
+# Not a target:
+src/make_arr.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-28 19:39:47
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 src/create_map.o: src/create_map.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/create_map'
-#  Last modified 2022-08-29 20:31:23
+#  Last modified 2022-08-29 21:05:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -304,6 +376,15 @@ src/create_map.o: src/create_map.c
 #  commands to execute (from `Makefile', line 36):
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
+
+# Not a target:
+src/list.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-28 18:12:28
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 fclean: clean
 #  Phony target (prerequisite of .PHONY).
@@ -314,34 +395,77 @@ fclean: clean
 	$(RM) $(NAME)
 	
 
-# Not a target:
-src/get_next_line_utils_bonus.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/get_next_line_utils_bonus.o: src/get_next_line_utils_bonus.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/get_next_line_utils_bonus'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
-src/split.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/ft_atoi.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 15:20:44
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/split.o: src/split.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/split'
+#  Last modified 2022-08-29 21:05:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
-src/projection.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/key_input.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 16:14:04
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-src/utils.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/projection.o: src/projection.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/projection'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+
+src/utils.o: src/utils.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/utils'
+#  Last modified 2022-08-29 21:05:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
 .DEFAULT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+ 
 #  File has not been updated.
 
 re:
@@ -366,23 +490,35 @@ clean:
 # Not a target:
 src/draw_line.c:
 #  Implicit rule search has been done.
-#  Last modified 2022-08-29 20:13:56
+#  Last modified 2022-08-29 20:58:12
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
-# Not a target:
-src/rotate.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/rotate.o: src/rotate.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/rotate'
+#  Last modified 2022-08-29 21:05:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
-# Not a target:
-src/make_xy.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/make_xy.o: src/make_xy.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/make_xy'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # Not a target:
 src/create_map.c:
@@ -394,21 +530,18 @@ src/create_map.c:
 # Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 
 # Not a target:
-src/get_next_line_bonus.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-src/same_line.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-src/draw.o: src/draw.c
+src/get_next_line_utils_bonus.c:
 #  Implicit rule search has been done.
-#  Implicit/static pattern stem: `src/draw'
-#  Last modified 2022-08-29 20:31:23
+#  Last modified 2022-08-17 12:08:21
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/get_next_line_bonus.o: src/get_next_line_bonus.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/get_next_line_bonus'
+#  Last modified 2022-08-29 21:05:16
 #  File has been updated.
 #  Successfully updated.
 # variable set hash-table stats:
@@ -417,53 +550,94 @@ src/draw.o: src/draw.c
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
 
+src/same_line.o: src/same_line.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/same_line'
+#  Last modified 2022-08-29 21:05:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+
+# Not a target:
+src/split.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-19 19:18:40
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+src/draw.o: src/draw.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/draw'
+#  Last modified 2022-08-29 21:05:16
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
+
+# Not a target:
+src/projection.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-28 18:15:38
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
+# Not a target:
+src/utils.c:
+#  Implicit rule search has been done.
+#  Last modified 2022-08-29 15:18:37
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+
 src/fdf_main.o: src/fdf_main.c
 #  Implicit rule search has been done.
 #  Implicit/static pattern stem: `src/fdf_main'
-#  File does not exist.
+#  Last modified 2022-08-29 21:05:16
 #  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := src/fdf_main.o
-# automatic
-# % := 
-# automatic
-# * := src/fdf_main
-# automatic
-# + := src/fdf_main.c
-# automatic
-# | := 
-# automatic
-# < := src/fdf_main.c
-# automatic
-# ^ := src/fdf_main.c
-# automatic
-# ? := src/fdf_main.c
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 36):
 	$(CC) $(CFLAGS) -c $^ -o $@
 	
 
 fdf: src/create_map.o src/draw_line.o src/draw.o src/fdf_main.o src/ft_atoi.o src/get_next_line_bonus.o src/get_next_line_utils_bonus.o src/projection.o src/key_input.o src/list.o src/make_arr.o src/make_xy.o src/position_setting.o src/rotate.o src/split.o src/utils.o src/same_line.o
 #  Implicit rule search has not been done.
-#  File does not exist.
+#  Last modified 2022-08-29 21:05:17
 #  File has been updated.
-#  Needs to be updated (-q is set).
+#  Successfully updated.
 # variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/4=0%
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
 #  commands to execute (from `Makefile', line 33):
 	$(CC) $^ -o $(NAME) -Lminilibx -lmlx -framework OpenGL -framework Appkit
 	
 
-# Not a target:
-src/position_setting.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
+src/position_setting.o: src/position_setting.c
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: `src/position_setting'
+#  Last modified 2022-08-29 21:05:17
+#  File has been updated.
+#  Successfully updated.
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/0=0%
+#  commands to execute (from `Makefile', line 36):
+	$(CC) $(CFLAGS) -c $^ -o $@
+	
 
 # files hash-table stats:
-# Load=30/1024=3%, Rehash=0, Collisions=0/78=0%
+# Load=43/1024=4%, Rehash=0, Collisions=0/130=0%
 # VPATH Search Paths
 
 # No `vpath' search paths.
@@ -475,6 +649,6 @@ src/position_setting.o:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Finished Make data base on Mon Aug 29 20:31:27 2022
+# Finished Make data base on Tue Aug 30 19:14:11 2022
 
  

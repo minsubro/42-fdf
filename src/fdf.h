@@ -6,7 +6,7 @@
 /*   By: minsukan <minsukan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/17 11:52:08 by minsukan          #+#    #+#             */
-/*   Updated: 2022/08/29 20:59:21 by minsukan         ###   ########.fr       */
+/*   Updated: 2022/08/30 20:37:18 by minsukan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,6 @@ typedef struct s_mlx_data
 	void	*image;
 }			t_mlx_data;
 
-typedef struct s_info
-{
-	t_mlx_data	*mlx;
-	t_map		*map;
-	t_xy		**xy;
-	char		*projection;
-}					t_info;
-
 typedef struct s_data
 {
 	int	w;
@@ -86,6 +78,24 @@ typedef struct s_data
 	int	sign;
 	int	ysign;
 }		t_data;
+
+typedef struct s_image
+{
+	char	*addr;
+	int		bpp;
+	int		line_len;
+	int		endian;
+}			t_image;
+
+typedef struct s_info
+{
+	t_mlx_data	*mlx;
+	t_map		*map;
+	t_xy		**xy;
+	t_image		*image;
+	
+	char		*projection;
+}					t_info;
 
 void			map_error(void);
 void			ft_error(void);
@@ -110,8 +120,8 @@ void			rotate_z(int *x, int *y, double rot);
 void			conversion_rotate(t_xy **xy, t_map *map);
 void			ft_rotate(t_xy *xy, t_map *map);
 void			print_pixel(t_xy **xy, t_map *map, void *mlx, void *mlx_win);
-void			draw_line(t_xy s, t_xy e, t_mlx_data *mlx);
-void			draw_map(t_xy **xy, t_map *map, t_mlx_data *mlx);
+void			draw_line(t_xy s, t_xy e, t_mlx_data *mlx, t_image *img);
+void			draw_map(t_xy **xy, t_map *map, t_mlx_data *mlx, t_image *image);
 void			xy_setting(t_map *map, t_xy **xy);
 void			ft_isometric(t_xy *xy);
 void			conversion_isometric(t_xy **xy, t_map *map);
@@ -130,13 +140,14 @@ int				key_input(int key, t_info *info);
 void			projection_change(int key, t_info *info);
 void			move_change(int key, t_info *info);
 void			rot_change(int key, t_info *info);
-void			same_x(t_mlx_data *mlx, int sy, int ey, int x);
-void			same_y(t_mlx_data *mlx, int sx, int ex, int y);
+void			same_x(int sy, int ey, int x, t_image *img);
+void			same_y(int sx, int ex, int y, t_image *img);
 void			find_distance(t_map *map, int win_x, int win_y);
 void			position_setting(t_info *info);
 void			xy_setting(t_map *map, t_xy **xy);
 int				ft_strcmp(char *s1, char *s2);
 int				file_check(char *name);
 int				ft_exit(t_info *info);
+void			img_pix_put(t_image *img, int x, int y, int color);
 
 #endif
